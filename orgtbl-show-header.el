@@ -32,7 +32,8 @@
 (defun orgtbl-show-header-of-current-column ()
   "In a table, show the header of the column the point is in."
   (interactive)
-  (message "%s" (substring-no-properties (org-table-get 1 nil))))
+  (let ((message-log-max nil))
+    (message "%s" (substring-no-properties (org-table-get 1 nil)))))
 
 (defadvice org-table-next-field (after orgtbl-show-header-after-next-field last)
   "Call `orgtbl-show-header-of-current-column`."
