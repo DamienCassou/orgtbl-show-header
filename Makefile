@@ -16,13 +16,18 @@ TESTS        = $(wildcard test/*.el)
 TAR          = $(DIST)/orgtbl-show-header-$(VERSION).tar
 
 
-.PHONY: all deps check install uninstall reinstall clean-all clean
+.PHONY: all deps check unit-tests ecukes-tests install uninstall reinstall clean-all clean
 all : deps $(TAR)
 
 deps :
 	$(CASK) install
 
-check : deps
+ecukes-tests : deps
+	$(CASK) exec ecukes --script
+
+check : unit-tests ecukes-tests
+
+unit-tests : deps
 	$(CASK) exec $(EMACSBATCH)  \
 	$(patsubst %,-l % , $(SRCS))\
 	$(patsubst %,-l % , $(TESTS))\
