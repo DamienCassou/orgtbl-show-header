@@ -1,5 +1,7 @@
 # orgtbl-show-header
 
+[![Build Status](https://travis-ci.org/DamienCassou/orgtbl-show-header.svg?branch=master)](https://travis-ci.org/DamienCassou/orgtbl-show-header)
+
 ## Summary
 
 Show the header of the current column in the minibuffer
