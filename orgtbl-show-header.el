@@ -26,8 +26,49 @@
 
 ;;; Code:
 
+(require 'org-table)
 
+(defun orgtbl-show-header-of-current-column ()
+  "In a table, show the header of the column the point is in."
+  (interactive)
+  (message "%s" (substring-no-properties (org-table-get 1 nil))))
+
+(defadvice org-table-next-field (after orgtbl-show-header-after-next-field last)
+  "Call `orgtbl-show-header-of-current-column`."
+  (orgtbl-show-header-of-current-column))
+
+(ad-disable-advice 'org-table-next-field 'after 'orgtbl-show-header-after-next-field)
+(ad-activate 'org-table-next-field)
+
+(defadvice org-table-previous-field (after orgtbl-show-header-after-previous-field last)
+  "Call `orgtbl-show-header-of-current-column`."
+  (orgtbl-show-header-of-current-column))
+
+(ad-disable-advice 'org-table-previous-field 'after 'orgtbl-show-header-after-previous-field)
+(ad-activate 'org-table-previous-field)
+
+(defun orgtbl-show-header-activate ()
+  "Configure \[org-table-next-field] to call `orgtbl-show-header-of-current-column`."
+  (ad-enable-advice 'org-table-next-field 'after 'orgtbl-show-header-after-next-field)
+  (ad-activate 'org-table-next-field)
+  (ad-enable-advice 'org-table-previous-field 'after 'orgtbl-show-header-after-previous-field)
+  (ad-activate 'org-table-previous-field))
+
+(defun orgtbl-show-header-deactivate ()
+  "Configure \[org-table-next-field] not to call `orgtbl-show-header-of-current-column`."
+  (ad-disable-advice 'org-table-next-field 'after 'orgtbl-show-header-after-next-field)
+  (ad-activate 'org-table-next-field)
+  (ad-disable-advice 'org-table-previous-field 'after 'orgtbl-show-header-after-previous-field)
+  (ad-activate 'org-table-previous-field))
+
+(define-minor-mode orgtbl-show-header
+  "Show current header while navigating in the table."
+  nil ;; init value
+  'orgtbl-head ;; lighter
+  nil ;; keymap
+  (if orgtbl-show-header
+      (orgtbl-show-header-activate)
+    (orgtbl-show-header-deactivate)))
 
 (provide 'orgtbl-show-header)
-
 ;;; orgtbl-show-header.el ends here
