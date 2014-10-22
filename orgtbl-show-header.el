@@ -28,6 +28,7 @@
 
 (require 'org-table)
 
+;;;###autoload
 (defun orgtbl-show-header-of-current-column ()
   "In a table, show the header of the column the point is in."
   (interactive)
@@ -61,6 +62,7 @@
   (ad-disable-advice 'org-table-previous-field 'after 'orgtbl-show-header-after-previous-field)
   (ad-activate 'org-table-previous-field))
 
+;;;###autoload
 (define-minor-mode orgtbl-show-header
   "Show current header while navigating in the table."
   nil ;; init value
