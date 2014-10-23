@@ -6,6 +6,8 @@
 
 Show the header of the current column in the minibuffer
 
+![Screencast](screencast.git)
+
 ## Contributing
 
 Yes, please do! See [CONTRIBUTING][] for guidelines.
