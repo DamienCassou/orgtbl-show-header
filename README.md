@@ -4,9 +4,17 @@
 
 ## Summary
 
-Show the header of the current column in the minibuffer
+In Emacs Org mode, this minor mode shows the header of the current column in the minibuffer.
 
 ![Screencast](screencast.git)
+
+## Installation
+
+Use a package manager (the package is on [MELPA](http://melpa.org)) or copy `orgtbl-show-header.el` to your `load-path`.
+
+## Usage
+
+In your Org file, type `M-x  orgtbl-show-header`. When you press `TAB` or `S-TAB` in a table, you will see the header of the current column printed in the minibuffer.
 
 ## Contributing
 
