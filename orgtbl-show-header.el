@@ -1,6 +1,6 @@
 ;;; orgtbl-show-header.el --- Show the header of the current column in the minibuffer
 
-;; Copyright (C) 2014 Damien Cassou
+;; Copyright (C) 2014-2023 Damien Cassou
 
 ;; Author: Damien Cassou <damien.cassou@gmail.com>
 ;; Version: 0.1

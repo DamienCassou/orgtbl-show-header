@@ -1,6 +1,6 @@
 ;;; orgtbl-show-header-tests.el --- Tests for orgtbl-show-header.el
 
-;; Copyright (C) 2013 Damien Cassou
+;; Copyright (C) 2013-2023 Damien Cassou
 
 ;; Author: Damien Cassou <damien.cassou@gmail.com>
 

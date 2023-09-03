@@ -22,7 +22,7 @@ Yes, please do! See [CONTRIBUTING][] for guidelines.
 
 ## License
 
-See [COPYING][]. Copyright (c) 2014 Damien Cassou.
+See [COPYING][]. Copyright (c) 2014-2023 Damien Cassou.
 
 
 [CONTRIBUTING]: ./CONTRIBUTING.md
